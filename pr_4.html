@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Резюме — Angelina Jolie</title>
+<style>
+  :root{
+    --teal:#19b2b9;
+    --dark:#2b2b2b;
+    --gray:#9a9a9a;
+    --light-gray:#bdbdbd;
+    --black:#1f1f1f;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  body{
+    font-family:"Helvetica Neue", Arial, "Segoe UI", sans-serif;
+    background:#e9e9e9;
+    display:flex;
+    justify-content:center;
+    padding:40px 16px;
+  }
+
+  table{border-collapse:collapse; border-spacing:0;}
+  td, th{padding:0; text-align:left; vertical-align:top; font-weight:normal;}
+
+  /* ===== OUTER LAYOUT TABLE ===== */
+  .resume{
+    width:900px;
+    max-width:100%;
+    background:#fff;
+    box-shadow:0 0 25px rgba(0,0,0,0.15);
+  }
+
+  .sidebar-cell{
+    width:336px;
+    background:var(--dark);
+    color:#fff;
+  }
+
+  .content-cell{
+    color:var(--black);
+  }
+
+  /* ===== LEFT SIDEBAR ===== */
+  .photo-figure{
+    line-height:0;
+  }
+
+  .photo{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    display:block;
+    filter:grayscale(100%);
+  }
+
+  .sidebar-inner{
+    padding:30px 28px 40px;
+  }
+
+  .sb-section{
+    display:block;
+    margin-bottom:34px;
+  }
+
+  .sb-heading{
+    font-size:20px;
+    font-weight:700;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+    margin-bottom:18px;
+  }
+
+  .sb-table{width:100%;}
+  .sb-table tr td{padding-bottom:14px;}
+  .sb-table tr:not(:last-child) td{border-bottom:1px solid #454545;}
+  .sb-table tr:not(:first-child) td{padding-top:14px;}
+
+  .sb-years{
+    width:1%;
+    white-space:nowrap;
+    padding-right:14px;
+    color:var(--teal);
+    font-size:12px;
+    font-weight:600;
+  }
+
+  .sb-title{
+    font-size:13px;
+    font-weight:700;
+    text-transform:uppercase;
+    margin-bottom:6px;
+    line-height:1.4;
+  }
+
+  .sb-sub{
+    font-size:12px;
+    color:var(--light-gray);
+    line-height:1.6;
+  }
+
+  .follow-list{
+    list-style:none;
+  }
+  .follow-item{
+    margin-bottom:14px;
+  }
+  .follow-name{
+    display:block;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:3px;
+  }
+  .follow-link{
+    font-size:12px;
+    color:var(--light-gray);
+    text-decoration:none;
+  }
+  .follow-link:hover{
+    color:#fff;
+  }
+
+  .ref-table{
+    width:100%;
+    margin-bottom:16px;
+    padding-bottom:16px;
+    border-bottom:1px solid #454545;
+  }
+  .ref-table:last-child{
+    margin-bottom:0;
+    padding-bottom:0;
+    border-bottom:none;
+  }
+  .ref-name{
+    font-size:13px;
+    font-weight:700;
+    text-transform:uppercase;
+    margin-bottom:4px;
+  }
+  .ref-role{
+    font-size:12px;
+    color:var(--light-gray);
+    margin-bottom:10px;
+  }
+  .ref-table td{
+    font-size:12px;
+    padding-top:4px;
+  }
+  .ref-label{
+    width:50px;
+    font-weight:700;
+  }
+  .ref-value{
+    color:var(--light-gray);
+  }
+
+  /* ===== RIGHT CONTENT ===== */
+  .content{
+    padding:36px 40px 40px;
+  }
+
+  .resume-header{
+    margin-bottom:24px;
+  }
+
+  .name{
+    font-size:32px;
+    font-weight:700;
+    letter-spacing:1px;
+  }
+
+  .role{
+    font-size:14px;
+    font-weight:600;
+    color:#444;
+    margin-top:2px;
+  }
+
+  .section-title{
+    font-size:19px;
+    font-weight:700;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+
+  .about-text{
+    font-size:12.5px;
+    color:#9a9a9a;
+    line-height:1.9;
+    margin-bottom:26px;
+  }
+
+  .contact-info{
+    display:block;
+    font-style:normal;
+  }
+
+  .contact-table{
+    width:100%;
+    margin-bottom:34px;
+  }
+  .contact-table td{
+    padding-bottom:12px;
+    vertical-align:middle;
+    font-size:12.5px;
+    color:#444;
+  }
+  .contact-table a{
+    color:inherit;
+    text-decoration:none;
+  }
+  .icon-cell{
+    width:32px;
+    padding-right:10px;
+  }
+  .icon-cell.second{
+    padding-left:30px;
+  }
+  .icon-svg{
+    display:block;
+    width:22px;
+    height:22px;
+    flex-shrink:0;
+    fill:none;
+    stroke:var(--teal);
+    stroke-width:2;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+  }
+
+  /* timeline */
+  .timeline-table{
+    width:100%;
+    margin-bottom:10px;
+  }
+  .timeline-table td{
+    padding-bottom:22px;
+  }
+  .timeline-date{
+    width:1%;
+    white-space:nowrap;
+    padding-right:24px;
+    padding-top:2px;
+    font-size:12px;
+    color:#9a9a9a;
+    line-height:1.6;
+  }
+  .timeline-title{
+    font-size:13px;
+    font-weight:700;
+    text-transform:uppercase;
+    margin-bottom:6px;
+  }
+  .timeline-text{
+    font-size:12px;
+    color:#9a9a9a;
+    line-height:1.7;
+  }
+
+  .skills-section{
+    margin:30px 0 34px;
+  }
+  .skills-table{
+    width:auto;
+  }
+  .skills-table th{
+    font-size:13px;
+    font-weight:700;
+    text-transform:uppercase;
+    padding-bottom:14px;
+    padding-right:80px;
+  }
+  .skills-table td{
+    font-size:12.5px;
+    color:#9a9a9a;
+    padding-bottom:10px;
+    padding-right:80px;
+  }
+
+  .hobbies{
+    list-style:none;
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:14px;
+    font-size:12px;
+    font-weight:600;
+    color:#444;
+    letter-spacing:0.5px;
+  }
+  .hobbies li.dot{
+    color:var(--teal);
+    font-size:16px;
+  }
+
+  @media (max-width:760px){
+    .resume, .resume tbody, .resume tr, .sidebar-cell, .content-cell{
+      display:block;
+      width:100%;
+    }
+    .contact-table tr, .contact-table td{
+      display:block;
+      width:auto;
+    }
+    .icon-cell.second{padding-left:0;}
+  }
+</style>
+</head>
+<body>
+
+<table class="resume">
+  <tbody>
+    <tr>
+      <!-- ================= SIDEBAR ================= -->
+      <td class="sidebar-cell">
+        <aside class="sidebar">
+          <figure class="photo-figure">
+            <img class="photo" src="extra/avatar.jpeg" alt="Фото Angelina Jolie">
+          </figure>
+
+          <div class="sidebar-inner">
+
+            <section class="sb-section" aria-labelledby="edu-heading">
+              <h2 id="edu-heading" class="sb-heading">Experience</h2>
+              <table class="sb-table">
+                <tbody>
+                  <tr>
+                    <td class="sb-years">2009 - 2012</td>
+                    <td>
+                      <p class="sb-title">Certificate of Web Traning</p>
+                      <p class="sb-sub">Name of the Institute<br>Melbourne Australia</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="sb-years">2006 - 2009</td>
+                    <td>
+                      <p class="sb-title">Bachelors of Arts</p>
+                      <p class="sb-sub">Name of the Versity<br>United kingdom</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="sb-years">2004</td>
+                    <td>
+                      <p class="sb-title">Higher Secondary Examinition</p>
+                      <p class="sb-sub">Name of the School<br>Rajsahi BD</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+
+            <nav class="sb-section" aria-labelledby="follow-heading">
+              <h2 id="follow-heading" class="sb-heading">Follow Me</h2>
+              <ul class="follow-list">
+                <li class="follow-item">
+                  <span class="follow-name">Behance</span>
+                  <a class="follow-link" href="https://behance.net/username">Behance.net/username</a>
+                </li>
+                <li class="follow-item">
+                  <span class="follow-name">Facebook</span>
+                  <a class="follow-link" href="https://facebook.com/username">facebook.com/username</a>
+                </li>
+                <li class="follow-item">
+                  <span class="follow-name">Linkdine</span>
+                  <a class="follow-link" href="https://linkdine.con/username">linkdine.con/username</a>
+                </li>
+                <li class="follow-item">
+                  <span class="follow-name">Drribble</span>
+                  <a class="follow-link" href="https://drribble.con/username">drribble.con/username</a>
+                </li>
+              </ul>
+            </nav>
+
+            <section class="sb-section" aria-labelledby="ref-heading">
+              <h2 id="ref-heading" class="sb-heading">Reference</h2>
+
+              <table class="ref-table">
+                <tbody>
+                  <tr>
+                    <td colspan="2">
+                      <p class="ref-name">MD.Dustin Paul</p>
+                      <p class="ref-role">Director-Matrix media limited</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="ref-label">Phone</td>
+                    <td class="ref-value">+252 252 7678</td>
+                  </tr>
+                  <tr>
+                    <td class="ref-label">Email</td>
+                    <td class="ref-value">email@freedownloadpsd.com</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <table class="ref-table">
+                <tbody>
+                  <tr>
+                    <td colspan="2">
+                      <p class="ref-name">Jenson Smith</p>
+                      <p class="ref-role">Web developer,Design media LTD</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="ref-label">Phone</td>
+                    <td class="ref-value">+252 252 7678</td>
+                  </tr>
+                  <tr>
+                    <td class="ref-label">Email</td>
+                    <td class="ref-value">email@freedownloadpsd.com</td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+
+          </div>
+        </aside>
+      </td>
+
+      <!-- ================= CONTENT ================= -->
+      <td class="content-cell">
+        <main class="content">
+
+          <header class="resume-header">
+            <h1 class="name">Angelina Jolie</h1>
+            <p class="role">Web Design and Developer</p>
+          </header>
+
+          <section aria-labelledby="overpoint-heading">
+            <h2 id="overpoint-heading" class="section-title">Overpoint</h2>
+            <p class="about-text">
+              My Name Is Morrison Jamie Lorem empus id fringilla molestie ornare diam in molestie shit is
+              ipsum eitorm eosn ollicitudin est,porttitor amet hitmassa Done cporttitor dolor shit ipsum
+              Dolor kiren lorem nisl molestie pretium effring is the shitp ipsum retiumci dolor shit
+              tudinest moles tium lorem olestuc pretium apaza all the rpsen.Fringilla ipsum.
+            </p>
+
+            <address class="contact-info">
+              <table class="contact-table">
+                <tbody>
+                  <tr>
+                    <td class="icon-cell">
+                      <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </td>
+                    <td colspan="3">Home Address,Road # 45Your City Town Country # 5566</td>
+                  </tr>
+                  <tr>
+                    <td class="icon-cell">
+                      <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </td>
+                    <td><a href="tel:+1234567889">+1234 567 889</a></td>
+                    <td class="icon-cell second">
+                      <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </td>
+                    <td><a href="mailto:kevinsmith123@mail.com">kevinsmith123@mail.com</a></td>
+                  </tr>
+                  <tr>
+                    <td class="icon-cell">
+                      <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    </td>
+                    <td colspan="3"><a href="http://www.freedownloadpsd.com">www.freedownloadpsd.com</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </address>
+          </section>
+
+          <section aria-labelledby="exp-heading">
+            <h2 id="exp-heading" class="section-title">Experience</h2>
+            <table class="timeline-table">
+              <tbody>
+                <tr>
+                  <td class="timeline-date">Jan 2015<br>Running</td>
+                  <td>
+                    <article>
+                      <h3 class="timeline-title">Senior Web Developer at Devs Team Company</h3>
+                      <p class="timeline-text">
+                        Porttitor amer massa Done cporttitor dolor et nisl molestie ium felisicon<br>
+                        Done cporttitor dolor kiren lorem nisl done molestie
+                      </p>
+                    </article>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="timeline-date">Feb 2015<br>Aug 2014</td>
+                  <td>
+                    <article>
+                      <h3 class="timeline-title">Lead Designer at Creative Studio</h3>
+                      <p class="timeline-text">
+                        Porttitor amer massa Done cporttitor dolor et nisl molestie ium felisicon<br>
+                        lore lore dolor fringilla amet hitmassa Done cporttitor dolor shit ipsum<br>
+                        Done cporttitor dolor kiren lorem nisl done molestie
+                      </p>
+                    </article>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="timeline-date">Apr 2014<br>Jun 2013</td>
+                  <td>
+                    <article>
+                      <h3 class="timeline-title">Graphic &amp; Web Designer at Lorem Company L.T.D</h3>
+                      <p class="timeline-text">
+                        Porttitor amer massa Done cporttitor dolor et nisl molestie ium felisicon<br>
+                        lore lore dolor fringilla amet hitmassa Done cporttitor dolor shit ipsum<br>
+                        Done cporttitor dolor kiren lorem nisl done molestie
+                      </p>
+                    </article>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="timeline-date">Jul 2013<br>Jun 2012</td>
+                  <td>
+                    <article>
+                      <h3 class="timeline-title">Graphic &amp; Web Designer at Freelancer</h3>
+                      <p class="timeline-text">
+                        Porttitor amer massa Done cporttitor dolor et nisl molestie ium felisicon<br>
+                        lore lore dolor fringilla amet hitmassa Done cporttitor dolor shit ipsum<br>
+                        Done cporttitor dolor kiren lorem nisl done molestie
+                      </p>
+                    </article>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section class="skills-section" aria-labelledby="skills-heading">
+            <h2 id="skills-heading" class="section-title">Experience</h2>
+            <table class="skills-table">
+              <thead>
+                <tr>
+                  <th scope="col">Professional</th>
+                  <th scope="col">Personal</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Wordpress</td><td>Creativity</td></tr>
+                <tr><td>HTML</td><td>Teamwork</td></tr>
+                <tr><td>Jquarry</td><td>communication</td></tr>
+                <tr><td>Photoshop</td><td>Hard Work</td></tr>
+                <tr><td>java</td><td>Innovate</td></tr>
+              </tbody>
+            </table>
+          </section>
+
+          <footer aria-labelledby="hobbies-heading">
+            <h2 id="hobbies-heading" class="section-title">Hobbies</h2>
+            <ul class="hobbies">
+              <li>WORDPRESS</li><li class="dot" aria-hidden="true">&bull;</li>
+              <li>CHESS</li><li class="dot" aria-hidden="true">&bull;</li>
+              <li>PINBALL</li><li class="dot" aria-hidden="true">&bull;</li>
+              <li>PHOTOGRAPHY</li><li class="dot" aria-hidden="true">&bull;</li>
+              <li>CYCLING</li>
+            </ul>
+          </footer>
+
+        </main>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

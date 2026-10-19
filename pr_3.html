@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Novell Services Login</title>
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 16px;
+        }
+
+        h1 {
+            font-weight: normal;
+            font-size: 28px;
+            text-align: center;
+            margin: 10px 0 20px;
+        }
+
+        form {
+            width: 310px;
+            margin: 0 auto;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 3px 0;
+            vertical-align: middle;
+        }
+
+        td.label {
+            width: 100px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 200px;
+        }
+
+        .gap td {
+            height: 40px;
+        }
+
+        .buttons {
+            text-align: center;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Novell Services Login</h1>
+
+    <form action="#" method="post">
+        <table>
+            <tr>
+                <td class="label"><label for="username">Username:</label></td>
+                <td><input type="text" id="username" name="username"></td>
+            </tr>
+            <tr>
+                <td class="label"><label for="password">Password:</label></td>
+                <td><input type="password" id="password" name="password"></td>
+            </tr>
+            <tr>
+                <td class="label"><label for="city">City of Employment:</label></td>
+                <td><input type="text" id="city" name="city"></td>
+            </tr>
+            <tr>
+                <td class="label"><label for="server">Web server:</label></td>
+                <td>
+                    <select id="server" name="server">
+                        <option value="" selected>&mdash; Choose a server &mdash;</option>
+                        <option value="server1">Server 1</option>
+                        <option value="server2">Server 2</option>
+                        <option value="server3">Server 3</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr class="gap"><td colspan="2"></td></tr>
+
+            <tr>
+                <td class="label">Please specify your role:</td>
+                <td>
+                    <input type="radio" id="admin" name="role" value="admin">
+                    <label for="admin">Admin</label><br>
+                    <input type="radio" id="engineer" name="role" value="engineer">
+                    <label for="engineer">Engineer</label><br>
+                    <input type="radio" id="manager" name="role" value="manager">
+                    <label for="manager">Manager</label><br>
+                    <input type="radio" id="guest" name="role" value="guest">
+                    <label for="guest">Guest</label>
+                </td>
+            </tr>
+
+            <tr class="gap"><td colspan="2"></td></tr>
+
+            <tr>
+                <td class="label">Single Sign-on to the following:</td>
+                <td>
+                    <input type="checkbox" id="mail" name="sso" value="mail">
+                    <label for="mail">Mail</label><br>
+                    <input type="checkbox" id="payroll" name="sso" value="payroll">
+                    <label for="payroll">Payroll</label><br>
+                    <input type="checkbox" id="self-service" name="sso" value="self-service">
+                    <label for="self-service">Self-service</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" class="buttons">
+                    <input type="submit" value="Login">
+                    <input type="reset" value="Reset">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
